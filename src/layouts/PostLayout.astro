@@ -1,0 +1,101 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import DefaultLayout from './Default.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { Picture } from 'astro:assets';
+import { slugify } from '../utils/common-utils';
+
+type Props = {
+	post: CollectionEntry<'diy' | 'dessert'>;
+};
+
+const { post } = Astro.props;
+const {
+	title,
+	category,
+	description,
+	heroImage,
+	publishedDate,
+	updatedDate,
+	tags = [],
+} = post.data;
+const { Content } = await post.render();
+---
+
+<DefaultLayout pageTitle={title} pageDescription={description}>
+	<article>
+		<header>
+			<hero>
+				<Picture src={heroImage} alt="" />
+				<div class="pub-date">
+					<FormattedDate date={publishedDate} />
+					{
+						updatedDate && (
+							<>
+								{' '}
+								<span>
+									(Updated on <FormattedDate date={updatedDate} />)
+								</span>
+							</>
+						)
+					}
+				</div>
+				<h1>{title}</h1>
+			</hero>
+		</header>
+		<content>
+			<Content />
+			<div class="tags">
+				{
+					tags.length > 0 && (
+						<div>
+							{tags.map((tag) => (
+								<a class="tag" href={`/${category}/tags/${slugify(tag)}`}>
+									#{tag}
+								</a>
+							))}
+						</div>
+					)
+				}
+				<!-- <Button
+					class="copy-url-button"
+					aria-label="Copy link"
+					data-url={href}
+					data-tooltip-default="Copy link"
+					data-tooltip-success="Copied">Share</Button> -->
+			</div>
+			<slot />
+		</content>
+	</article>
+</DefaultLayout>
+
+<style>
+	article {
+		hero {
+			.pub-date {
+				margin-top: 2rem;
+				text-align: center;
+				font-size: 0.75rem;
+				color: var(--gray);
+			}
+			h1 {
+				font-size: 2.5rem;
+			}
+		}
+
+		picture {
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.tags {
+			margin-top: 4rem;
+			a.tag {
+				color: var(--gray-light);
+				&:hover {
+					color: var(--accent);
+				}
+			}
+		}
+	}
+</style>

@@ -1,0 +1,61 @@
+---
+import { Picture } from 'astro:assets';
+import { type CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+type Props = {
+	post: CollectionEntry<'diy' | 'dessert'>;
+	class?: string;
+};
+
+const { post, class: className } = Astro.props;
+const { title, publishedDate, heroImage } = post.data;
+
+const path = `/${post.collection}/${post.slug}`;
+---
+
+<article class:list={[className]}>
+	<a href={path} class="picture">
+		<Picture src={heroImage} alt="" />
+	</a>
+	<FormattedDate class="published-date" date={publishedDate} />
+	<a href={path} class="title">
+		<FormattedDate class="published-date" date={publishedDate} />
+		{title}
+	</a>
+</article>
+
+<style>
+	article {
+		display: block;
+		text-align: center;
+
+		> a.picture {
+			display: block;
+			margin-bottom: 1rem;
+		}
+
+		> .published-date {
+			display: block;
+			margin-bottom: 1rem;
+			font-size: 0.8rem;
+			color: var(--gray);
+			letter-spacing: 0.02em;
+			line-height: 1.5em;
+		}
+
+		> .title {
+			display: block;
+			margin-bottom: 1rem;
+			color: var(--black);
+			font-size: 1.2rem;
+			text-transform: uppercase;
+			font-weight: 350;
+			letter-spacing: 0.05em;
+
+			> .published-date {
+				display: none;
+			}
+		}
+	}
+</style>

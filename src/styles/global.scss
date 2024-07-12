@@ -1,6 +1,8 @@
 :root {
 	--accent: rgb(223, 133, 133);
 	--black: #303135;
+	--gray: #6b6b6b;
+	--gray-light: #bbb;
 	--divider-color: #f0f0f0;
 }
 
@@ -148,6 +150,13 @@ a {
 a:hover {
 	color: var(--accent);
 	text-decoration: underline;
+}
+
+// These elements exist because squarespace wrapped each image in one
+figure {
+	margin: 0;
+	padding: 0;
+	display: inline;
 }
 
 .sr-only {
