@@ -1,16 +1,18 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+import { Picture } from 'astro:assets';
+import logoImage from '../images/logo.png';
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
+		<Picture class="site-logo" src={logoImage} alt={SITE_TITLE} />
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
 				<span class="sr-only">Follow Astro on Mastodon</span>
@@ -45,13 +47,9 @@ import { SITE_TITLE } from '../consts';
 <style>
 	header {
 		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
+		padding: 5rem 5rem;
+		/* background: white; */
+		/* box-shadow: 0 2px 8px rgba(var(--black), 5%); */
 	}
 
 	h2 a,
@@ -62,6 +60,10 @@ import { SITE_TITLE } from '../consts';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+	.site-logo {
+		max-height: 12rem;
+		width: auto;
 	}
 	nav a {
 		padding: 1em 0.5em;

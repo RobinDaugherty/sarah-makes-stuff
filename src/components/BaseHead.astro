@@ -1,17 +1,18 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
+import { SITE_TITLE } from '../consts';
 
 interface Props {
-	title: string;
-	description: string;
+	pageTitle: string | undefined;
+	pageDescription?: string | undefined;
+	pubDate?: Date | undefined;
 	image?: string;
 }
+// TODO: something with image
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { pageTitle, pageDescription, pubDate, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const title = pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE;
 ---
 
 <!-- Global Metadata -->
@@ -21,8 +22,10 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="/fonts/BrandonGrotesque-Regular.woff2" as="font" type="font/woff2" />
+<link rel="preload" href="/fonts/BrandonGrotesque-RegularItalic.woff2" as="font" type="font/woff2" />
+<link rel="preload" href="/fonts/BrandonGrotesque-Bold.woff2" as="font" type="font/woff2" />
+<link rel="preload" href="/fonts/BrandonGrotesque-BoldItalic.woff2" as="font" type="font/woff2" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -30,18 +33,19 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
-<meta name="description" content={description} />
+<meta name="description" content={pageDescription} />
+{pubDate && <meta property="pubDate" content={pubDate.toString()} />}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={pageDescription} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
+<meta property="twitter:description" content={pageDescription} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />

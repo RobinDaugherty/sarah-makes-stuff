@@ -1,0 +1,169 @@
+:root {
+	--accent: rgb(223, 133, 133);
+	--black: #303135;
+	--divider-color: #f0f0f0;
+}
+
+// Don't forget to add any font files to be preloaded in BaseHead!
+
+@font-face {
+	font-family: 'Brandon Grotesque';
+	src: url('/fonts/BrandonGrotesque-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Brandon Grotesque';
+	src: url('/fonts/BrandonGrotesque-RegularItalic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Brandon Grotesque';
+	src: url('/fonts/BrandonGrotesque-Medium.woff2') format('woff2');
+	font-weight: 450;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Brandon Grotesque';
+	src: url('/fonts/BrandonGrotesque-MediumItalic.woff2') format('woff2');
+	font-weight: 450;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Brandon Grotesque';
+	src: url('/fonts/BrandonGrotesque-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Brandon Grotesque';
+	src: url('/fonts/BrandonGrotesque-BoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
+
+html {
+	font-size: 17px;
+	color: var(--black);
+}
+
+body {
+	margin: 0;
+	font-family: 'Brandon Grotesque', sans-serif;
+}
+
+.content {
+	position: relative;
+	margin: 0 auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	@include breakpoint(sm) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+	@include breakpoint(md) {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+	@include breakpoint(lg) {
+		padding-left: 6rem;
+		padding-right: 6rem;
+	}
+	@include breakpoint(xl) {
+		padding-left: 7rem;
+		padding-right: 7rem;
+	}
+}
+
+main {
+	max-width: 80rem;
+	margin: auto;
+
+	img,
+	picture {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	hero {
+		display: block;
+		margin-bottom: 6rem;
+
+		h1 {
+			text-align: center;
+			margin-bottom: 4rem;
+		}
+	}
+
+	content {
+		display: block;
+		width: 83%;
+		margin: auto;
+	}
+
+	p {
+		margin: 0 0 2rem 0;
+	}
+
+	li {
+		margin: 0 0 1rem 0;
+	}
+	ul li {
+		list-style-type: '•  ';
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-transform: uppercase;
+	font-weight: 350;
+	letter-spacing: 0.05em;
+}
+
+h1 {
+	font-size: 1.6rem;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--accent);
+	text-decoration: underline;
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}

@@ -1,0 +1,31 @@
+---
+import '../styles/global.scss';
+
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+type Props = {
+	pageTitle: string | undefined;
+	pageDescription?: string | undefined;
+	pubDate?: Date | undefined;
+};
+
+const { pageTitle, pageDescription, pubDate } = Astro.props;
+---
+
+<html lang="en-us">
+	<head>
+		<BaseHead pageTitle={pageTitle} pageDescription={pageDescription} pubDate={pubDate} />
+	</head>
+
+	<body>
+		<Header />
+		<div class="content">
+			<main>
+				<slot />
+			</main>
+		</div>
+		<Footer />
+	</body>
+</html>

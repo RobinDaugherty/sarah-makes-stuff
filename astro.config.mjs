@@ -7,4 +7,19 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://sarahmakesstuff.com',
 	integrations: [mdx(), sitemap()],
+	vite: {
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData(source, filePath) {
+						if (filePath.includes('use-')) return source;
+						return `
+							@use "astro-breakpoints/use-breakpoints.scss" as *;
+							${source}
+						`;
+					},
+				},
+			},
+		},
+	},
 });
