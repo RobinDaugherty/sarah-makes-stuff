@@ -1,10 +1,31 @@
 ---
+import Email from '../icons/email.astro';
+import Instagram from '../icons/instagram.astro';
+import Pinterest from '../icons/pinterest.astro';
+import siteConfig from '../consts';
+
 const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Sarah Daugherty All rights reserved.
+	<div class="social">
+		<a
+			href={`mailto:${encodeURIComponent(siteConfig.email)}`}
+			target="_blank"
+			rel="noopener noreferrer"><Email /><span class="sr-only">Email</span></a
+		>
+		<a href="http://instagram.com/sarah_makes_stuff"
+			><Instagram /><span class="sr-only">Instagram</span></a
+		>
+		<a href="https://www.pinterest.com/makesstuffsarah/"
+			><Pinterest /><span class="sr-only">Pinterest</span></a
+		>
+	</div>
+	<div class="copyright">
+		&copy; {today.getFullYear()} Sarah Daugherty All rights reserved.
+	</div>
 </footer>
+
 <style>
 	footer {
 		width: 100%;
@@ -12,6 +33,33 @@ const today = new Date();
 		border-top: 1px solid var(--divider-color);
 		text-align: center;
 		padding-top: 6rem;
-		padding-bottom: 6rem;
+		padding-bottom: 1rem;
+
+		.social {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 0.5rem;
+			&:hover {
+				color: var(--gray-light);
+			}
+
+			a {
+				color: inherit;
+				&:hover {
+					color: var(--black);
+				}
+			}
+
+			svg {
+				width: 1.2rem;
+			}
+		}
+
+		.copyright {
+			font-size: 0.7rem;
+			margin-top: 4rem;
+			color: var(--gray-light);
+		}
 	}
 </style>

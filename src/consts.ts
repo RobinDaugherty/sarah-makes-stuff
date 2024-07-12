@@ -3,12 +3,14 @@
 
 export type SiteConfig = {
 	title: string;
+	email: string;
 	description: string;
 	postsPerPage: number;
 };
 
 const siteConfig: SiteConfig = {
 	title: 'Sarah Makes Stuff',
+	email: 'sarah@sarahdaugherty.net',
 	description:
 		'I mostly bake but some times I try my hand at craftinesses too.',
 	postsPerPage: 12,
