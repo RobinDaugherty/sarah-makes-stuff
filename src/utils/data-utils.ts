@@ -2,6 +2,11 @@ import { getCollection } from 'astro:content';
 import { type CollectionEntry } from 'astro:content';
 import { slugify } from './common-utils';
 
+export type Tag = {
+	name: string;
+	slug: string;
+};
+
 export async function getAllPosts() {
 	const diyPosts = await getCollection('diy');
 	const recipePosts = await getCollection('dessert');
@@ -27,7 +32,7 @@ export function getAllTags(posts: CollectionEntry<'diy' | 'dessert'>[]) {
 			return {
 				name: tag,
 				slug: slugify(tag),
-			};
+			} as Tag;
 		})
 		.filter((obj, pos, arr) => {
 			return arr.map((mapObj) => mapObj.slug).indexOf(obj.slug) === pos;

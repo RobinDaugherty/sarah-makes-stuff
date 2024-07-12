@@ -1,0 +1,44 @@
+---
+import { type CollectionEntry } from 'astro:content';
+import Layout from '../../../layouts/Default.astro';
+import PostPreview from '../../../components/PostPreview.astro';
+import PostCollection from '../../../components/PostCollection.astro';
+import {
+	sortItemsByDateDesc,
+	getAllTags,
+	getPostsByTag,
+	getAllPosts,
+} from '../../../utils/data-utils';
+import type { Tag } from '../../../utils/data-utils';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+	const allPosts = (await getAllPosts()).sort(sortItemsByDateDesc);
+	const tags = getAllTags(allPosts);
+
+	return tags.flatMap((tag) => {
+		const posts = getPostsByTag(allPosts, tag.slug);
+		return {
+			params: { slug: tag.slug },
+			props: { tag: tag, posts },
+		};
+	});
+}
+
+export type Props = {
+	tag: Tag;
+	posts: CollectionEntry<'diy'>[];
+};
+
+const { tag, posts } = Astro.props;
+---
+
+<Layout pageTitle={`${tag.name}`} `>
+	<hero>
+		<h1>{tag.name}</h1>
+	</hero>
+	<PostCollection>
+		{posts.map((post) => <PostPreview post={post} />)}
+	</PostCollection>
+</Layout>

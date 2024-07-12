@@ -50,7 +50,7 @@ const { Content } = await post.render();
 					tags.length > 0 && (
 						<div>
 							{tags.map((tag) => (
-								<a class="tag" href={`/${category}/tags/${slugify(tag)}`}>
+								<a class="tag" href={`/${category}/tag/${slugify(tag)}`}>
 									#{tag}
 								</a>
 							))}
@@ -83,9 +83,11 @@ const { Content } = await post.render();
 			}
 		}
 
-		picture {
-			margin-top: 2rem;
-			margin-bottom: 2rem;
+		content {
+			picture {
+				margin-top: 2rem;
+				margin-bottom: 2rem;
+			}
 		}
 
 		.tags {
