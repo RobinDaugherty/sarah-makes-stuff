@@ -4,14 +4,14 @@ import { SITE_TITLE } from '../consts';
 interface Props {
 	pageTitle: string | undefined;
 	pageDescription?: string | undefined;
-	pubDate?: Date | undefined;
+	publishedDate?: Date | undefined;
 	image?: string;
 }
 // TODO: something with image
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { pageTitle, pageDescription, pubDate, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { pageTitle, pageDescription, publishedDate, image = '/blog-placeholder-1.jpg' } = Astro.props;
 const title = pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE;
 ---
 
@@ -34,7 +34,7 @@ const title = pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={pageDescription} />
-{pubDate && <meta property="pubDate" content={pubDate.toString()} />}
+{publishedDate && <meta property="publishedDate" content={publishedDate.toString()} />}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

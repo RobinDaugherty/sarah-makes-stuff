@@ -1,0 +1,26 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/PostLayout.astro';
+import { sortItemsByDateDesc } from '../../utils/data-utils';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+	const posts = (await getCollection('dessert')).sort(sortItemsByDateDesc);
+	return posts.map((post, _index) => ({
+		params: { slug: post.slug },
+		props: {
+			post,
+		},
+	}));
+}
+
+export type Props = {
+	a: string;
+	post: CollectionEntry<'dessert'>;
+};
+
+const { post } = Astro.props;
+---
+
+<Layout post={post} />

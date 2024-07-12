@@ -8,15 +8,15 @@ import Footer from '../components/Footer.astro';
 type Props = {
 	pageTitle: string | undefined;
 	pageDescription?: string | undefined;
-	pubDate?: Date | undefined;
+	publishedDate?: Date | undefined;
 };
 
-const { pageTitle, pageDescription, pubDate } = Astro.props;
+const { pageTitle, pageDescription, publishedDate } = Astro.props;
 ---
 
 <html lang="en-us">
 	<head>
-		<BaseHead pageTitle={pageTitle} pageDescription={pageDescription} pubDate={pubDate} />
+		<BaseHead pageTitle={pageTitle} pageDescription={pageDescription} publishedDate={publishedDate} />
 	</head>
 
 	<body>
