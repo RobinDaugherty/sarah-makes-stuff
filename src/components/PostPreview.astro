@@ -15,17 +15,16 @@ const path = `/${post.collection}/${post.slug}`;
 ---
 
 <article class:list={[className]}>
-	<a href={path} class="picture">
-		<Picture src={heroImage} alt="" />
-	</a>
-	<span class="published-date">
-		<FormattedDate date={publishedDate} />
-	</span>
-	<a href={path} class="title">
-		<span class="date-inside-title">
+	<a href={path}>
+		<div class="picture">
+			<Picture src={heroImage} alt="" />
+		</div>
+		<div class="published-date">
 			<FormattedDate date={publishedDate} />
-		</span>
-		{title}
+		</div>
+		<div class="title">
+			{title}
+		</div>
 	</a>
 </article>
 
@@ -39,41 +38,44 @@ const path = `/${post.collection}/${post.slug}`;
 		@include breakpoint(sm) {
 			width: 44%;
 		}
-		@include breakpoint(md) {
-			width: 29%;
-		}
 		@include breakpoint(lg) {
-			width: 21%;
+			width: 30%;
 		}
 		@include breakpoint(xl) {
+			width: 21%;
+		}
+		@include breakpoint(xxl) {
 			width: 18%;
 		}
 
-		> a.picture {
+		.picture {
 			display: block;
-			margin-bottom: 1rem;
+			margin-bottom: 0.5rem;
 		}
 
 		.published-date {
 			display: block;
-			margin-bottom: 1rem;
-			font-size: 0.8rem;
+			margin-bottom: 0.5rem;
+			font-size: 0.75rem;
 			color: var(--gray);
 			letter-spacing: 0.02em;
 			line-height: 1.5em;
+			text-decoration-color: transparent;
 		}
 
-		a.title {
+		.title {
 			display: block;
 			margin-bottom: 1rem;
 			color: var(--black);
-			font-size: 1.2rem;
 			text-transform: uppercase;
 			font-weight: 350;
 			letter-spacing: 0.05em;
-
-			.date-inside-title {
-				display: none;
+			font-size: 1.2rem;
+			@include breakpoint(lg) {
+				font-size: 1.45vw;
+			}
+			@include breakpoint(xl) {
+				font-size: 1.6rem;
 			}
 		}
 	}

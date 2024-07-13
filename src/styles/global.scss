@@ -69,12 +69,8 @@ body {
 .content {
 	position: relative;
 	margin: 0 auto;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	@include breakpoint(sm) {
-		padding-left: 2rem;
-		padding-right: 2rem;
-	}
+	padding-left: 1.2rem;
+	padding-right: 1.2rem;
 	@include breakpoint(md) {
 		padding-left: 4rem;
 		padding-right: 4rem;
@@ -90,7 +86,6 @@ body {
 }
 
 main {
-	max-width: 80rem;
 	margin: auto;
 
 	img,
@@ -102,6 +97,10 @@ main {
 
 	hero {
 		display: block;
+		max-width: 75rem;
+		margin-right: auto;
+		margin-left: auto;
+
 		margin-bottom: 6rem;
 
 		h1 {
@@ -112,8 +111,10 @@ main {
 
 	content {
 		display: block;
-		width: 83%;
 		margin: auto;
+		@include breakpoint(md) {
+			width: 83%;
+		}
 	}
 
 	p {
@@ -140,7 +141,13 @@ h6 {
 }
 
 h1 {
-	font-size: 1.6rem;
+	font-size: 1.5rem;
+	@include breakpoint(lg) {
+		font-size: 3.385vw;
+	}
+	@include breakpoint(xl) {
+		font-size: 1.9rem;
+	}
 }
 
 a {
