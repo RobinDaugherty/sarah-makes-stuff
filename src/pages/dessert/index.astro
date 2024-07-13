@@ -2,14 +2,12 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Default.astro';
 import PostPreview from '../../components/PostPreview.astro';
-import PostCollection from '../../components/PostCollection.astro';
+import PostPreviewCollection from '../../components/PostPreviewCollection.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 
 const posts = (await getCollection('dessert')).sort(sortItemsByDateDesc);
 ---
 
 <Layout pageTitle="Desserts">
-	<PostCollection>
-		{posts.map((post) => <PostPreview post={post} />)}
-	</PostCollection>
+	<PostPreviewCollection posts={posts} />
 </Layout>

@@ -18,24 +18,43 @@ const path = `/${post.collection}/${post.slug}`;
 	<a href={path} class="picture">
 		<Picture src={heroImage} alt="" />
 	</a>
-	<FormattedDate class="published-date" date={publishedDate} />
+	<span class="published-date">
+		<FormattedDate date={publishedDate} />
+	</span>
 	<a href={path} class="title">
-		<FormattedDate class="published-date" date={publishedDate} />
+		<span class="date-inside-title">
+			<FormattedDate date={publishedDate} />
+		</span>
 		{title}
 	</a>
 </article>
 
-<style>
+<style lang="scss">
 	article {
 		display: block;
 		text-align: center;
+		padding-bottom: 2rem;
+
+		width: 100%;
+		@include breakpoint(sm) {
+			width: 44%;
+		}
+		@include breakpoint(md) {
+			width: 29%;
+		}
+		@include breakpoint(lg) {
+			width: 21%;
+		}
+		@include breakpoint(xl) {
+			width: 18%;
+		}
 
 		> a.picture {
 			display: block;
 			margin-bottom: 1rem;
 		}
 
-		> .published-date {
+		.published-date {
 			display: block;
 			margin-bottom: 1rem;
 			font-size: 0.8rem;
@@ -44,7 +63,7 @@ const path = `/${post.collection}/${post.slug}`;
 			line-height: 1.5em;
 		}
 
-		> .title {
+		a.title {
 			display: block;
 			margin-bottom: 1rem;
 			color: var(--black);
@@ -53,7 +72,7 @@ const path = `/${post.collection}/${post.slug}`;
 			font-weight: 350;
 			letter-spacing: 0.05em;
 
-			> .published-date {
+			.date-inside-title {
 				display: none;
 			}
 		}
