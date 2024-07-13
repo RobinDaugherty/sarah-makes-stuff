@@ -8,6 +8,8 @@
 		"start": "astro dev",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
+		"prepare": "node .husky/install.mjs",
+		"lint": "pnpm prettier -w .",
 		"astro": "astro"
 	},
 	"dependencies": {
@@ -25,7 +27,14 @@
 	},
 	"devDependencies": {
 		"astro": "^4.11.5",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.7",
 		"prettier": "^3.3.2",
 		"prettier-plugin-astro": "^0.14.0"
+	},
+	"lint-staged": {
+		"*.{js,mjs,cjs,ts,json,yml,jsx,tsx,css}": [
+			"pnpm prettier --write"
+		]
 	}
 }
