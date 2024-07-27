@@ -7,6 +7,7 @@ export async function GET(context: APIContext) {
 	const posts = await getAllPosts();
 
 	return rss({
+		trailingSlash: false,
 		title: siteConfig.title,
 		description: siteConfig.description,
 		site: context.site!,
@@ -14,7 +15,7 @@ export async function GET(context: APIContext) {
 			title: post.data.title,
 			description: post.data.description,
 			pubDate: post.data.publishedDate,
-			link: `/${post.collection}/${post.slug}/`,
+			link: `/${post.collection}/${post.slug}`,
 		})),
 	});
 }
