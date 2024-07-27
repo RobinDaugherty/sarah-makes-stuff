@@ -6,7 +6,7 @@ import FormattedDate from './FormattedDate.astro';
 type Props = {
 	post: CollectionEntry<'diy' | 'dessert'>;
 	class?: string;
-	layout?: 'grid' | 'horizontal';
+	layout?: 'grid' | 'horizontal' | 'vertical';
 };
 
 const { post, class: className } = Astro.props;
@@ -36,6 +36,10 @@ const path = `/${post.collection}/${post.slug}`;
 		text-align: center;
 		padding-bottom: 2rem;
 
+		a {
+			text-decoration: none;
+		}
+
 		&.layout-grid {
 			width: 100%;
 			@include breakpoint(sm) {
@@ -61,7 +65,7 @@ const path = `/${post.collection}/${post.slug}`;
 			display: block;
 			margin-bottom: 0.5rem;
 			font-size: 0.75rem;
-			color: var(--gray);
+			color: var(--gray-light);
 			letter-spacing: 0.02em;
 			line-height: 1.5em;
 			text-decoration-color: transparent;

@@ -3,10 +3,19 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Default.astro';
 import { sortItemsByDateDesc } from '../utils/data-utils';
 import PostPreviewCollectionHorizontal from '../components/PostPreviewCollectionHorizontal.astro';
+import PostPreviewCollectionVertical from '../components/PostPreviewCollectionVertical.astro';
 
-const posts = (await getCollection('dessert'))
-	.filter((post) => post.data.tags.includes('pink'))
-	.sort(sortItemsByDateDesc);
+const verticalCollectionLength = 8;
+
+const dessertPosts = (await getCollection('dessert')).sort(sortItemsByDateDesc);
+const pinkPosts = dessertPosts.filter((post) =>
+	post.data.tags.includes('pink'),
+);
+const recentDesserts = dessertPosts.slice(0, verticalCollectionLength);
+const diyPosts = (await getCollection('diy')).sort(sortItemsByDateDesc);
+const recentDiy = diyPosts.slice(0, verticalCollectionLength);
+const moreDesserts = dessertPosts.length > verticalCollectionLength;
+const moreDiy = diyPosts.length > verticalCollectionLength;
 ---
 
 <Layout
@@ -20,11 +29,29 @@ const posts = (await getCollection('dessert'))
 				<a href="/dessert/tag/pink">See all</a>
 			</div>
 		</div>
-		<PostPreviewCollectionHorizontal posts={posts} />
+		<PostPreviewCollectionHorizontal posts={pinkPosts} />
+	</div>
+	<div class="columns">
+		<div>
+			<h1>Recently Baked&hellip;</h1>
+			<PostPreviewCollectionVertical posts={recentDesserts} />
+			{
+				moreDesserts ? (
+					<a href="/dessert">Show me some more sugar</a>
+				) : (
+					<p>More desserts coming soon!</p>
+				)
+			}
+		</div>
+		<div>
+			<h1>Recently DIYed&hellip;</h1>
+			<PostPreviewCollectionVertical posts={recentDiy} />
+			{moreDiy ? <a href="/diy">See all</a> : <p>More DIY coming soon!</p>}
+		</div>
 	</div>
 </Layout>
 
-<style>
+<style lang="scss">
 	.section-title {
 		display: flex;
 		justify-content: space-between;
@@ -35,6 +62,12 @@ const posts = (await getCollection('dessert'))
 			margin: 0 0 1rem 0;
 		}
 		.more-link {
+		}
+	}
+	.columns {
+		@include breakpoint(sm) {
+			display: flex;
+			gap: 4%;
 		}
 	}
 </style>
