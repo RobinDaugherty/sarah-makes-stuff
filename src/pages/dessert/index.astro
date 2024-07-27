@@ -1,12 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Default.astro';
-import PostPreviewCollection from '../../components/PostPreviewCollection.astro';
+import PostPreviewCollectionGrid from '../../components/PostPreviewCollectionGrid.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 
 const posts = (await getCollection('dessert')).sort(sortItemsByDateDesc);
 ---
 
 <Layout pageTitle="Desserts">
-	<PostPreviewCollection posts={posts} />
+	<PostPreviewCollectionGrid posts={posts} />
 </Layout>

@@ -1,10 +1,40 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Default.astro';
+import { sortItemsByDateDesc } from '../utils/data-utils';
+import PostPreviewCollectionHorizontal from '../components/PostPreviewCollectionHorizontal.astro';
+
+const posts = (await getCollection('dessert'))
+	.filter((post) => post.data.tags.includes('pink'))
+	.sort(sortItemsByDateDesc);
 ---
 
 <Layout
 	pageTitle={undefined}
 	pageDescription="I mostly bake but some times I try my hand at craftinesses too."
 >
-	<h1>TODO: Featured content</h1>
+	<div>
+		<div class="section-title">
+			<h1>Featured: #onwednesdaysweeatpinktreats</h1>
+			<div class="more-link">
+				<a href="/dessert/tag/pink">See all</a>
+			</div>
+		</div>
+		<PostPreviewCollectionHorizontal posts={posts} />
+	</div>
 </Layout>
+
+<style>
+	.section-title {
+		display: flex;
+		justify-content: space-between;
+		h1 {
+			text-transform: none;
+			letter-spacing: normal;
+			font-size: 88%;
+			margin: 0 0 1rem 0;
+		}
+		.more-link {
+		}
+	}
+</style>

@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PostPreview from './PostPreview.astro';
+
+export type Props = {
+	posts: CollectionEntry<'dessert' | 'diy'>[];
+};
+const { posts } = Astro.props;
+---
+
+<div class="post-preview-collection-horizontal">
+	{posts.map((post) => <PostPreview post={post} layout={'horizontal'} />)}
+</div>
+
+<style>
+	.post-preview-collection-horizontal {
+		display: flex;
+		flex-direction: row;
+		overflow: hidden;
+		gap: 2%;
+		justify-content: space-between;
+		align-items: stretch;
+	}
+</style>

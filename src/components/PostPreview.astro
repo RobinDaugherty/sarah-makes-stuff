@@ -6,15 +6,17 @@ import FormattedDate from './FormattedDate.astro';
 type Props = {
 	post: CollectionEntry<'diy' | 'dessert'>;
 	class?: string;
+	layout?: 'grid' | 'horizontal';
 };
 
 const { post, class: className } = Astro.props;
 const { title, publishedDate, heroImage } = post.data;
+const layout = Astro.props.layout ?? 'grid';
 
 const path = `/${post.collection}/${post.slug}`;
 ---
 
-<article class:list={[className]}>
+<article class:list={[className, `layout-${layout}`]}>
 	<a href={path}>
 		<div class="picture">
 			<Picture src={heroImage} alt="" />
@@ -34,18 +36,20 @@ const path = `/${post.collection}/${post.slug}`;
 		text-align: center;
 		padding-bottom: 2rem;
 
-		width: 100%;
-		@include breakpoint(sm) {
-			width: 44%;
-		}
-		@include breakpoint(lg) {
-			width: 30%;
-		}
-		@include breakpoint(xl) {
-			width: 21%;
-		}
-		@include breakpoint(xxl) {
-			width: 18%;
+		&.layout-grid {
+			width: 100%;
+			@include breakpoint(sm) {
+				width: 44%;
+			}
+			@include breakpoint(lg) {
+				width: 30%;
+			}
+			@include breakpoint(xl) {
+				width: 21%;
+			}
+			@include breakpoint(xxl) {
+				width: 18%;
+			}
 		}
 
 		.picture {
@@ -76,6 +80,51 @@ const path = `/${post.collection}/${post.slug}`;
 			}
 			@include breakpoint(xl) {
 				font-size: 1.6rem;
+			}
+		}
+
+		&.layout-horizontal {
+			flex: 1 1 0; /* This makes all containers grow and shrink equally */
+			display: none;
+
+			@include breakpoint(xs) {
+				&:nth-child(-n + 2) {
+					display: block;
+				}
+			}
+			@include breakpoint(sm) {
+				&:nth-child(-n + 3) {
+					display: block;
+				}
+			}
+			@include breakpoint(md) {
+				&:nth-child(-n + 5) {
+					display: block;
+				}
+			}
+
+			.picture {
+				position: relative;
+				width: 100%;
+				padding-top: 133%; /* 9:16 aspect ratio */
+				overflow: hidden;
+			}
+
+			.picture img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.title {
+				font-size: 0.85rem;
+			}
+
+			.published-date {
+				display: none;
 			}
 		}
 	}

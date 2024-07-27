@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry } from 'astro:content';
 import Layout from '../../../layouts/Default.astro';
-import PostPreviewCollection from '../../../components/PostPreviewCollection.astro';
+import PostPreviewCollectionGrid from '../../../components/PostPreviewCollectionGrid.astro';
 import {
 	sortItemsByDateDesc,
 	getAllTags,
@@ -37,5 +37,5 @@ const { tag, posts } = Astro.props;
 	<hero>
 		<h1>{tag.name} Recipes</h1>
 	</hero>
-	<PostPreviewCollection posts={posts} />
+	<PostPreviewCollectionGrid posts={posts} />
 </Layout>
