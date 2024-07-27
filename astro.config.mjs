@@ -32,4 +32,9 @@ export default defineConfig({
 			},
 		},
 	},
+	redirects: {
+		// Note: these are not currently implemented when deployed. Currently these must be
+		// included in the nginx config.
+		'/dessert?format=rss': '/rss.xml',
+	},
 });
