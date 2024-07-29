@@ -17,111 +17,72 @@ seo:
 import { Picture } from 'astro:assets';
 import ContentImage1 from './images/1470262790531-KGDMHSCSJYPP8BA6CY5Z-khal drogonuts.webp';
 
-<div class="sqs-html-content">
-	<p>
-		If I could spend time in bottle, the first thing I'd like to do, is to save
-		every day 'til eternity passes away to eat these donuts. Is that not how the
-		song goes? Eh, close enough.
-	</p>
-</div>
-<div
-	class="image-block-outer-wrapper layout-caption-hidden design-layout-inline"
-	data-test="image-block-inline-outer-wrapper"
->
-	<figure class="sqs-block-image-figure intrinsic">
-		<div
-			class="image-block-wrapper"
-			data-animation-role="image"
-			data-animation-override=""
-		>
-			<div class="sqs-image-shape-container-element has-aspect-ratio">
-				<Picture
-					src={ContentImage1}
-					alt="khal drogonuts | sarah makes stuff"
-				></Picture>
-			</div>
-		</div>
-	</figure>
-</div>
-<div class="sqs-html-content">
-	<p>
-		<strong>DONUT INGREDIENTS</strong>
-		<br />
-		140 grams (1 cup) all-purpose flour
-		<br />
-		100 grams (1/2 cup) granulated sugar
-		<br />1 tbsp baking powder
-		<br />1 egg
-		<br />
-		115 grams (1/2 cup) milk
-		<br />
-		1/2 tsp vanilla
-		<br />4 tbsp vegetable oil
-	</p>
-	<p>
-		<strong>CHURRO TOPPING INGREDIENTS</strong>
-		<br />
-		57 grams (¼ cup) butter, melted
-		<br />
-		100 grams (1/2 cup) granulated sugar
-		<br />1 tbsp cinnamon
-	</p>
-	<p>
-		<strong>CHOCOLATE SAUCE INGREDIENTS</strong>
-		<br />3 tsp corn starch
-		<br />
-		288 grams (1¼ cup) milk
-		<br />
-		50 grams chocolate
-		<br />
-		sugar, to taste
-	</p>
-	<p>
-		<strong>DONUT INSTRUCTIONS</strong>
-		<br />
-		Sift dry ingredients together. Add egg, vanilla, and milk and beat 1 minute
-		with electric mixer.
-	</p>
-	<p>Add oil and continue to beat 1 minute more.</p>
-	<p>
-		<em>If using a donut maker,</em> fill and bake donuts according to your
-		donut maker.{' '}
-		<a
-			target="_blank"
-			href="https://www.amazon.com/Holiday-Time-Mini-Donut-Maker/dp/B008FCF7W6"
-		>
-			This is the donut maker I have
-		</a>
-		. It was a cheap, impulse buy around Christmas a couple years ago. I'm SURE
-		there are better ones out there. 
-	</p>
-	<p>
-		<em>If using a donut baking tin,</em> spoon the batter into baking tin.
-		Place in oven preheated to 350 F and bake for 8-12 minutes, or until a
-		toothpick inserted into donut comes out clean. Take out of the oven and
-		allow to cool in the pan for 5 minutes before taking out onto a wire rack to
-		cool completely.
-	</p>
-	<p>
-		<strong>CHURRO TOPPING INSTRUCTIONS</strong>
-		<br />
-		In a small bowl, melt butter. In another small bowl, mix sugar and cinnamon.
-		Brush each doughnut with butter and sprinkle with (or roll in)
-		sugar-cinnamon mixture.
-	</p>
-	<p>
-		<strong>CHOCOLATE SAUCE INSTRUCTIONS</strong>
-		<br />
-		Combine corn starch with some milk. In a saucepan, heat milk and chocolate
-		until chocolate is melted. Add cornflour mixture gradually, cooking over a
-		low heat. Stir constantly until the mixture thickens. Sweeten to taste.
-	</p>
-	<p>
-		<a
-			target="_blank"
-			href="http://www.kitchennostalgia.com/desserts/churro-doughnuts.html"
-		>
-			(Adapted from the Churro Doughnuts recipe from Kitchen Nostalgia)
-		</a>
-	</p>
-</div>
+{<p>If I could spend time in bottle, the first thing I'd like to do, is to save
+every day 'til eternity passes away to eat these donuts. Is that not how the
+song goes? Eh, close enough.</p>}
+
+{<p><Picture
+		src={ContentImage1}
+		alt="khal drogonuts | sarah makes stuff"
+	/></p>}
+{<p><strong>DONUT INGREDIENTS</strong>
+<br />
+140 grams (1 cup) all-purpose flour
+<br />
+100 grams (1/2 cup) granulated sugar
+<br />1 tbsp baking powder
+<br />1 egg
+<br />
+115 grams (1/2 cup) milk
+<br />
+1/2 tsp vanilla
+<br />4 tbsp vegetable oil</p>}
+{<p><strong>CHURRO TOPPING INGREDIENTS</strong>
+<br />
+57 grams (¼ cup) butter, melted
+<br />
+100 grams (1/2 cup) granulated sugar
+<br />1 tbsp cinnamon</p>}
+{<p><strong>CHOCOLATE SAUCE INGREDIENTS</strong>
+<br />3 tsp corn starch
+<br />
+288 grams (1¼ cup) milk
+<br />
+50 grams chocolate
+<br />
+sugar, to taste</p>}
+{<p><strong>DONUT INSTRUCTIONS</strong>
+<br />
+Sift dry ingredients together. Add egg, vanilla, and milk and beat 1 minute
+with electric mixer.</p>}
+{<p>Add oil and continue to beat 1 minute more.</p>}
+{<p><em>If using a donut maker,</em> fill and bake donuts according to your donut
+maker.{' '}
+<a
+		target="_blank"
+		href="https://www.amazon.com/Holiday-Time-Mini-Donut-Maker/dp/B008FCF7W6"
+	>
+This is the donut maker I have
+</a>
+. It was a cheap, impulse buy around Christmas a couple years ago. I'm SURE
+there are better ones out there.</p>}
+{<p><em>If using a donut baking tin,</em> spoon the batter into baking tin. Place
+in oven preheated to 350 F and bake for 8-12 minutes, or until a toothpick
+inserted into donut comes out clean. Take out of the oven and allow to cool in
+the pan for 5 minutes before taking out onto a wire rack to cool completely.</p>}
+{<p><strong>CHURRO TOPPING INSTRUCTIONS</strong>
+<br />
+In a small bowl, melt butter. In another small bowl, mix sugar and cinnamon.
+Brush each doughnut with butter and sprinkle with (or roll in) sugar-cinnamon
+mixture.</p>}
+{<p><strong>CHOCOLATE SAUCE INSTRUCTIONS</strong>
+<br />
+Combine corn starch with some milk. In a saucepan, heat milk and chocolate
+until chocolate is melted. Add cornflour mixture gradually, cooking over a low
+heat. Stir constantly until the mixture thickens. Sweeten to taste.</p>}
+{<p><a
+		target="_blank"
+		href="http://www.kitchennostalgia.com/desserts/churro-doughnuts.html"
+	>
+(Adapted from the Churro Doughnuts recipe from Kitchen Nostalgia)
+</a></p>}

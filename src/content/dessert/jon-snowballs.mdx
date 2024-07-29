@@ -16,84 +16,47 @@ seo:
 import { Picture } from 'astro:assets';
 import ContentImage1 from './images/1470261869117-65VVNO15I4MHBBI8ST8K-jon snowballs.webp';
 
-<div class="sqs-html-content">
-	<p>
-		I hate snow but these are snowballs I can get behind. You know, right
-		behind. Behind them as I shove them into my mouth. 
-	</p>
-</div>
-<div
-	class="image-block-outer-wrapper layout-caption-hidden design-layout-inline"
-	data-test="image-block-inline-outer-wrapper"
->
-	<figure class="sqs-block-image-figure intrinsic">
-		<div
-			class="image-block-wrapper"
-			data-animation-role="image"
-			data-animation-override=""
-		>
-			<div class="sqs-image-shape-container-element has-aspect-ratio">
-				<Picture
-					src={ContentImage1}
-					alt="jon snowballs | sarah makes stuff"
-				></Picture>
-			</div>
-		</div>
-	</figure>
-</div>
-<div class="sqs-html-content">
-	<p>
-		<strong>INGREDIENTS</strong>
-		<br />8 ounces red candy melts
-		<br />
-		165 grams (5 tablespoons) unsalted butter
-		<br />
-		43 grams (3 tablespoons) heavy cream
-		<br />
-		pinch of salt
-		<br />
-		37 grams (1/3 cup) powdered sugar
-	</p>
-	<p>
-		<strong>INSTRUCTIONS</strong>
-		<br />
-		In a small saucepan melt butter, add heavy cream and stir to combine, then
-		stir in salt, set aside.
-	</p>
-	<p>
-		Over a double boiler melt candy melts, stirring casually until smooth and
-		completely melted. 
-	</p>
-	<p>
-		Gently stir in lukewarm butter and heavy cream mixture into melted
-		chocolate. Butter and heavy cream mixture should be approximately the same
-		temperature as melted candy melts before you combine them.
-	</p>
-	<p>
-		Cool slightly, cover with plastic wrap and refrigerate for 2-3 hours (or
-		until firm enough to roll the balls). While it’s cooling, you can take it
-		from the fridge, stir with a fork, cover again with plastic wrap and place
-		back into the fridge.
-	</p>
-	<p>
-		With a small spoon or a melon baller scoop out the mixture and roll into 1
-		inch balls. You can dust your hands with powdered sugar or if it’s too
-		sticky drop a spoon of mixture into powder sugar, (it makes it much easier
-		to roll into a ball) then roll it again in the sugar when the ball is
-		formed.
-	</p>
-	<p>Roll each ball into powdered sugar to coat them well.</p>
-	<p>
-		Store in the fridge in an airtight container up to 1 week or freeze for
-		longer storage.
-	</p>
-	<p>
-		<a
-			target="_blank"
-			href="http://omgchocolatedesserts.com/white-chocolate-orange-creamsicle-truffles/"
-		>
-			(Adapted from the White Chocolate Orange Creamsicle Truffles recipe from
-			OMG Chocolate Desserts)
-		</a>
-	</p>
-</div>
+{<p>I hate snow but these are snowballs I can get behind. You know, right
+behind. Behind them as I shove them into my mouth.</p>}
+
+{<p><Picture
+		src={ContentImage1}
+		alt="jon snowballs | sarah makes stuff"
+	/></p>}
+{<p><strong>INGREDIENTS</strong>
+<br />8 ounces red candy melts
+<br />
+165 grams (5 tablespoons) unsalted butter
+<br />
+43 grams (3 tablespoons) heavy cream
+<br />
+pinch of salt
+<br />
+37 grams (1/3 cup) powdered sugar</p>}
+{<p><strong>INSTRUCTIONS</strong>
+<br />
+In a small saucepan melt butter, add heavy cream and stir to combine, then
+stir in salt, set aside.</p>}
+{<p>Over a double boiler melt candy melts, stirring casually until smooth and
+completely melted.</p>}
+{<p>Gently stir in lukewarm butter and heavy cream mixture into melted chocolate.
+Butter and heavy cream mixture should be approximately the same temperature as
+melted candy melts before you combine them.</p>}
+{<p>Cool slightly, cover with plastic wrap and refrigerate for 2-3 hours (or until
+firm enough to roll the balls). While it’s cooling, you can take it from the
+fridge, stir with a fork, cover again with plastic wrap and place back into
+the fridge.</p>}
+{<p>With a small spoon or a melon baller scoop out the mixture and roll into 1
+inch balls. You can dust your hands with powdered sugar or if it’s too sticky
+drop a spoon of mixture into powder sugar, (it makes it much easier to roll
+into a ball) then roll it again in the sugar when the ball is formed.</p>}
+{<p>Roll each ball into powdered sugar to coat them well.</p>}
+{<p>Store in the fridge in an airtight container up to 1 week or freeze for longer
+storage.</p>}
+{<p><a
+		target="_blank"
+		href="http://omgchocolatedesserts.com/white-chocolate-orange-creamsicle-truffles/"
+	>
+(Adapted from the White Chocolate Orange Creamsicle Truffles recipe from OMG
+Chocolate Desserts)
+</a></p>}
